@@ -8,6 +8,7 @@ use App\Models\Course;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -28,9 +29,13 @@ class CourseResource extends Resource
             ->schema([
                 Card::make()
     ->schema([
-        TextInput::make('id'),
-                TextInput::make('class'),
-                TextInput::make('teacher')
+        
+        Select::make('subject_id')
+        ->relationship('subject', 'name subject'),
+                
+        Select::make('teacher_id')
+    ->relationship('teacher', 'name'),
+    TextInput::make('class'),
     ])
                 
             ]);
@@ -40,9 +45,11 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id') -> sortable() ->searchable(),
+                
+                TextColumn::make('subject.name subject') -> sortable() ->searchable(),
+                
+                TextColumn::make('teacher.name') -> sortable() ->searchable(),
                 TextColumn::make('class') -> sortable() ->searchable(),
-                TextColumn::make('teacher') -> sortable() ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime(),
                 TextColumn::make('updated_at')

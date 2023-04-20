@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-    protected $fillable = ['subject_id','class','teacher'];
+    protected $fillable = ['subject_id','name subject','class','teacher_id','name '];
     
-    public function state()
+    public function subject()
     {
         return $this->belongsTo(Subject::class);
     }
-
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
     public function student()
     {
         return $this->hasMany(Student::class);
