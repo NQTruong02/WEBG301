@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Grade extends Model
 {
     use HasFactory;
-    protected $fillable = ['teacher_id','score','evaluate'];
+    protected $fillable = ['grade_id','subject_id','score','evaluate'];
 
     public function subject()
     {
-        return $this->hasMany(Subject::class);
+        return $this->belongsTo(Subject::class);
     }
 
     public function student()

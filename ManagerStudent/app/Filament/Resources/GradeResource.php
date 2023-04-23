@@ -6,9 +6,13 @@ use App\Filament\Resources\GradeResource\Pages;
 use App\Filament\Resources\GradeResource\RelationManagers;
 use App\Models\Grade;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -22,18 +26,45 @@ class GradeResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+        ->schema([
+            Card::make()
+->schema([
+    
+    TextInput::make('grade_id'), 
+
+    Select::make('subject_id')
+    ->relationship('subject', 'name subject'),
+            
+    TextInput::make('score'), 
+
+    Select::make('evaluate')
+    ->options([
+        'Weak' => 'Weak',
+        'Average' => 'Average',
+        'Good' => 'Good',
+        'Excellent' => 'Excellent',
+   
+    ]),
+    
+
+])
+            
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('grade_id')-> sortable() ->searchable(),
+                TextColumn::make('subject.name subject') -> sortable() ->searchable(),
+
+                TextColumn::make('score')-> sortable() ->searchable(),
+                TextColumn::make('evaluate')-> sortable() ->searchable(),
+
+                TextColumn::make('created_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime(),
             ])
             ->filters([

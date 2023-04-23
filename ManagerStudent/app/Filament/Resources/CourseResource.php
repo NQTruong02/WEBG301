@@ -29,13 +29,26 @@ class CourseResource extends Resource
             ->schema([
                 Card::make()
     ->schema([
-        
+        TextInput::make('course_id'), 
         Select::make('subject_id')
         ->relationship('subject', 'name subject'),
                 
         Select::make('teacher_id')
     ->relationship('teacher', 'name'),
-    TextInput::make('class'),
+    Select::make('class')
+    ->options([
+        'GCH1001' => 'GCH1001',
+        'GCH1005' => 'GCH1005',
+        'GCH1007' => 'GCH1007',
+        'GCH1101' => 'GCH1101',
+        'GCH1102' => 'GCH1102',
+        'GCH1104' => 'GCH1104',
+        'GCH1106' => 'GCH1106',
+
+
+   
+    ]),
+   
     ])
                 
             ]);
@@ -45,7 +58,7 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
-                
+                TextColumn::make('course_id') -> sortable() ->searchable(),
                 TextColumn::make('subject.name subject') -> sortable() ->searchable(),
                 
                 TextColumn::make('teacher.name') -> sortable() ->searchable(),

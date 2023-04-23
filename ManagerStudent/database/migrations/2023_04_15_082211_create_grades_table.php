@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
+            $table->integer('grade_id');
+            $table->foreignId('subject_id') -> constrained() -> cascadeOnDelete();
             $table->float('score');
             $table->string('evaluate');
             $table->timestamps();
