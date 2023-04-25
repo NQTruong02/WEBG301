@@ -43,7 +43,7 @@ class GradeResource extends Resource
         'Average' => 'Average',
         'Good' => 'Good',
         'Excellent' => 'Excellent',
-   
+        // 4 valuate the score 0 to 10
     ]),
     
 
