@@ -72,7 +72,7 @@ class StudentResource extends Resource
                 TextColumn::make('grade.score') -> sortable() ->searchable(),
                 TextColumn::make('course.class') -> sortable() ->searchable(),
                
-               ImageColumn ::make('image'), 
+               ImageColumn ::make('image'), //display image in columns
                 TextColumn::make('address')-> sortable() ->searchable(),
                 TextColumn::make('gmail')-> sortable() ->searchable(),
                 
