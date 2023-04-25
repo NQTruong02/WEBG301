@@ -15,7 +15,9 @@
         @livewireScripts
         @stack('scripts')
     </head>
-
+   
+   
+   
     <body class="antialiased">
         {{ $slot }}
 
