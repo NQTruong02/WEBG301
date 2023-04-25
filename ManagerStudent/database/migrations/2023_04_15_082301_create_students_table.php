@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('age');
             $table->text('gender');
+            $table->text('image');
+            
             $table->text('address');
             $table->text('gmail');
             $table->timestamps();

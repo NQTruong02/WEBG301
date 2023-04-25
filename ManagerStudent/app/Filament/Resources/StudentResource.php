@@ -9,11 +9,13 @@ use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -48,6 +50,7 @@ class StudentResource extends Resource
         'Female' => 'Female',
    
     ]),
+    FileUpload ::make('image'),
     TextInput::make('address'),
     TextInput::make('gmail'),
 
@@ -69,7 +72,7 @@ class StudentResource extends Resource
                 TextColumn::make('grade.score') -> sortable() ->searchable(),
                 TextColumn::make('course.class') -> sortable() ->searchable(),
                
-               
+               ImageColumn ::make('image'), 
                 TextColumn::make('address')-> sortable() ->searchable(),
                 TextColumn::make('gmail')-> sortable() ->searchable(),
                 

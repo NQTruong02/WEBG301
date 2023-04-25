@@ -19,6 +19,7 @@ class Student extends Model
         'name',
         'age',
         'gender',
+        'image',
         'address',
         'gmail',
     ];

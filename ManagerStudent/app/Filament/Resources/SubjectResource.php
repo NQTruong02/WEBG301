@@ -36,6 +36,7 @@ class SubjectResource extends Resource
     Select::make('slot')
     ->options([
         '40' => '40',
+        '70' => '70',
    
     ]),
     
