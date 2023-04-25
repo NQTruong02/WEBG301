@@ -50,7 +50,7 @@ class StudentResource extends Resource
         'Female' => 'Female',
    
     ]),
-    FileUpload ::make('image'),
+    FileUpload ::make('image'), //upload imagefile
     TextInput::make('address'),
     TextInput::make('gmail'),
 
