@@ -48,7 +48,7 @@ class StudentResource extends Resource
         
         'Male' => 'Male',
         'Female' => 'Female',
-   
+                 
     ]),
     FileUpload ::make('image'), //upload imagefile
     TextInput::make('address'),
