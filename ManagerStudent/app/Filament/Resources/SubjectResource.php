@@ -41,7 +41,7 @@ class SubjectResource extends Resource
     ]),
     
 ])
-            
+                            
         ]);
     }
 
