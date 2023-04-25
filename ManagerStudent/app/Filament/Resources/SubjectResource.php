@@ -37,7 +37,7 @@ class SubjectResource extends Resource
     ->options([
         '40' => '40',
         '70' => '70',
-   
+        //2options select
     ]),
     
 ])
