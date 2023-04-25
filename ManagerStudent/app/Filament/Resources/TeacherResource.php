@@ -37,7 +37,7 @@ class TeacherResource extends Resource
     ->options([
         'male' => 'male',
         'female' => 'female',
-   
+   // 2 options select gender male or female
     ]),
     TextInput::make('age'),
     TextInput::make('address'),
